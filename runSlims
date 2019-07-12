@@ -1,0 +1,24 @@
+# running 5 replicates of RCP8.5 ("main setting"):
+slim -d seed=1 -d popscale=1 -d mutRate=1e-5 -d envirSD=0.5 -d Plasticity=1 -d MutEffect=0.03 -d numQTLs=100 tri85sina.slim >tri85A
+slim -d seed=2 -d popscale=1 -d mutRate=1e-5 -d envirSD=0.5 -d Plasticity=1 -d MutEffect=0.03 -d numQTLs=100 tri85sina.slim >tri85B
+slim -d seed=3 -d popscale=1 -d mutRate=1e-5 -d envirSD=0.5 -d Plasticity=1 -d MutEffect=0.03 -d numQTLs=100 tri85sina.slim >tri85C
+slim -d seed=4 -d popscale=1 -d mutRate=1e-5 -d envirSD=0.5 -d Plasticity=1 -d MutEffect=0.03 -d numQTLs=100 tri85sina.slim >tri85D
+slim -d seed=5 -d popscale=1 -d mutRate=1e-5 -d envirSD=0.5 -d Plasticity=1 -d MutEffect=0.03 -d numQTLs=100 tri85sina.slim >tri85E
+
+# running 5 replicates of RCP4.5 :
+slim -d seed=1 -d popscale=1 -d mutRate=1e-5 -d envirSD=0.5 -d Plasticity=1 -d MutEffect=0.03 -d numQTLs=100 tri45sina.slim >tri45A
+slim -d seed=2 -d popscale=1 -d mutRate=1e-5 -d envirSD=0.5 -d Plasticity=1 -d MutEffect=0.03 -d numQTLs=100 tri45sina.slim >tri45B
+slim -d seed=3 -d popscale=1 -d mutRate=1e-5 -d envirSD=0.5 -d Plasticity=1 -d MutEffect=0.03 -d numQTLs=100 tri45sina.slim >tri45C
+slim -d seed=4 -d popscale=1 -d mutRate=1e-5 -d envirSD=0.5 -d Plasticity=1 -d MutEffect=0.03 -d numQTLs=100 tri45sina.slim >tri45D
+slim -d seed=5 -d popscale=1 -d mutRate=1e-5 -d envirSD=0.5 -d Plasticity=1 -d MutEffect=0.03 -d numQTLs=100 tri45sina.slim >tri45E
+
+# removing unnecessary lines from output
+for F in tri*5[ABCDE] ; do 
+cat $F | grep -v adults | grep -v empty | grep -v extinct >$F.clean;
+done
+
+# use collectResults.R to average replicates
+
+# list all RData files containing results to be compared in file resfiles
+
+# use meanResplot.R to plot 
