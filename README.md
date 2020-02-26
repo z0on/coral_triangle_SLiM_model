@@ -1,1 +1,1 @@
-# coral_triangle_SLiM_model
+# this repository has been replaced by https://github.com/z0on/CoralTriangle_SLiM_model
